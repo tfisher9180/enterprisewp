@@ -15,6 +15,37 @@ function enterprisewp_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	$wp_customize->remove_control( 'custom_logo' );
+	$wp_customize->remove_control( 'display_header_text' );
+
+	$wp_customize->add_panel( 'theme_options', array(
+		'priority'				=> 10,
+		'capability'			=> 'edit_theme_options',
+		'title'						=> __( 'Theme Options', 'enterprisewp' ),
+		'description'			=> __( 'Custom options for the theme.', 'enterprisewp' ),
+	));
+
+	$wp_customize->add_section( 'theme_options_logo', array(
+		'capability'			=> 'edit_theme_options',
+		'title'						=> __( 'Logo', 'enterprisewp' ),
+		'description'			=> __( 'Logo for the enterprisewp theme.', 'enterprisewp' ),
+		'panel'						=> 'theme_options',
+	));
+
+	$wp_customize->add_setting( 'logo_img' );
+
+	$wp_customize->add_control( new WP_Customize_Cropped_Image_Control(
+		$wp_customize, 'logo_img', array(
+			'label'					=> __( 'Logo', 'enterprisewp' ),
+			'description'		=> __( 'Recommended logo dimensions: 245x100', 'enterprisewp' ),
+			'section'				=> 'theme_options_logo',
+			'settings'			=> 'logo_img',
+			'width'				=> 245,
+			'height'			=> 100,
+			'flex_width'		=> false,
+			'flex_height'		=> false,
+	) ) );
+
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',

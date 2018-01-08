@@ -20,3 +20,24 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.btn {
+	font-family: $font__headings;
+	display: inline-block;
+	font-weight: $font-weight-bold;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	border: none;
+	padding: 1rem 1.5rem;
+	font-size: 0.75rem;
+	line-height: $font__line-height-body;
+	border-radius: 0.2rem;
+
+	&.btn-primary {
+		color: #fff;
+		background-color: $color-primary;
+		text-shadow: 0 1px 4px rgba(#000, 0.2);
+	}
+}

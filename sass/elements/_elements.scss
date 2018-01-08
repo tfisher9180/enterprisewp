@@ -3,6 +3,11 @@ html {
 	-webkit-tap-highlight-color: transparent;
 }
 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	margin: 0;
+	vertical-align: middle;
+}
+
 *,
 *:before,
 *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */

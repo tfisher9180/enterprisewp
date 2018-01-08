@@ -19,11 +19,23 @@
 	}
 }
 
+@mixin create-query($width-type, $breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (#{$width-type}: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+}
+
+@function rem($px) {
+	@return ($px / $base-font-size-px) * 1rem;
+}
+
 
 // Rem output with px fallback
 @mixin font-size($sizeValue: 1) {
-	font-size: ($sizeValue * 20) * 1px;
-	font-size: $sizeValue * 1.25rem;
+	font-size: ($sizeValue * $base-font-size-mixin-px) * 1px;
+	font-size: ($sizeValue * $base-font-size-mixin-rem) * 1rem;
 }
 
 // Center block

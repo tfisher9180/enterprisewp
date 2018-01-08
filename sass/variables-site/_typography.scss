@@ -1,3 +1,8 @@
+$base-font-size-mixin-px: 20;
+$base-font-size-mixin-rem: $base-font-size-mixin-px / 16;
+$base-font-size-px: 18;
+$base-font-size-pt: $base-font-size-px / $base-font-size-mixin-px;
+
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 

@@ -192,7 +192,7 @@ function enterprisewp_logo() {
  * @return string
  */
 function enterprisewp_get_logo() {
-	return get_theme_mod( 'logo_img' );
+	return wp_get_attachment_url( get_theme_mod( 'logo_img' ) );
 }
 
 /**

@@ -1,15 +1,60 @@
-#primary-navigation {
+.nav-menu,
+.nav-menu ul {
+	list-style: none;
+	margin: 0;
+}
 
-	.nav-menu,
-	.nav-menu .sub-menu {
+#primary-navigation {
+	display: flex;
+	justify-content: flex-end;
+
+	.nav-menu {
 		display: none;
 
-		@include respond-to(md) {
+		.sub-menu {
+			display: none;
+		}
+
+		li {
+			position: relative;
+		}
+
+		a {
 			display: block;
+			font-size: 0.75rem;
+			font-family: $font__headings;
+			font-weight: $font-weight-bold;
+			color: #fff;
+			padding: 1rem 1.5rem;
+		}
+
+		@include respond-to(md) {
+			display: flex;
+			align-items: center;
+
+			li {
+				flex: 1 1 auto;
+				text-align: center;
+			}
+
+			a {
+				position: relative;
+				color: $color-neutral;
+				padding: 1.675rem 0.25rem;
+			}
 		}
 	}
 
 	.menu-toggle {
+		font-size: rem(15);
+		text-transform: uppercase;
+		padding: rem(16) rem(15);
+		min-width: 6.5rem;
+
+		.icon {
+			margin-right: 8px;
+			font-size: rem(20);
+		}
 
 		@include respond-to(md) {
 			display: none;
@@ -20,6 +65,10 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
+	}
+
+	@include create-query(max-width, xs) {
+		min-width: 6.5rem;
 	}
 }
 

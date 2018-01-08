@@ -9,9 +9,9 @@
 
 .container {
 
-  @each $size, $width in $breakpoints {
-    @include respond-to($size) {
-      max-width: $width;
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include respond-to($breakpoint) {
+      max-width: $max-width;
     }
   }
 }
@@ -21,23 +21,31 @@
   flex-wrap: wrap;
   margin-left: -$container-padding;
   margin-right: -$container-padding;
+}
 
-  &.between {
-    justify-content: space-between;
-  }
+.between {
+  justify-content: space-between;
+}
 
-  &.align-center,
-  &.center {
-    align-items: center;
-  }
+.align-center,
+.center {
+  align-items: center;
+}
 
-  &.justify-center,
-  &.center {
-    justify-content: center;
-  }
+.justify-center,
+.center {
+  justify-content: center;
+}
 
-  &.nowrap {
-    flex-wrap: nowrap;
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+@each $breakpoint, $px in $breakpoints {
+  @include respond-to($breakpoint) {
+    .nowrap-#{$breakpoint} {
+      flex-wrap: nowrap;
+    }
   }
 }
 

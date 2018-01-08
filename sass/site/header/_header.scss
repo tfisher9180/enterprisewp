@@ -11,18 +11,44 @@
 		a {
 			color: $color-neutral;
 		}
+
+		@media (max-width: 320px) {
+			font-size: 6vw;
+		}
 	}
 
 	.site-description {
 		font-size: 0.8rem;
 		margin: 0;
+
+		@media (max-width: 320px) {
+			font-size: 3.5vw;
+		}
 	}
 }
 
 .site-header {
 	background-color: $color-grey;
 
+	.row.main-container {
+		align-items: flex-start;
+	}
+
+	.site-header-inner {
+		border-bottom: 1px solid rgba(#000, 0.1);
+	}
+
+	.site-branding {
+		padding-right: 0;
+
+		@include create-query(max-width, xs) {
+			width: calc((100% - 6.5rem) - #{$container-padding}*2);
+			flex: 0 0 auto;
+		}
+	}
+
 	.site-logo {
+		text-align: center;
 		background-color: #fff;
 		display: flex;
 		align-items: center;
@@ -31,10 +57,63 @@
 		box-shadow: 0 10px 40px rgba(#000, 0.1);
 		height: $site-branding-height;
 		margin-left: -$container-padding;
+		margin-bottom: 1.5rem;
+
+		img {
+			vertical-align: middle;
+		}
+
+		&.is-text {
+			padding: 0 $container-padding;
+
+			@include respond-to(xs) {
+				width: 245px;
+			}
+		}
 
 		@include respond-to(xs) {
 			display: inline-flex;
 			margin-left: 0;
+		}
+
+		@include respond-to(md) {
+			margin-bottom: -2rem;
+		}
+	}
+
+	.featured-button {
+
+		.btn {
+			display: block;
+			background-color: $color-secondary;
+			padding: 0.75rem 1.5rem;
+
+			> * {
+				display: block;
+			}
+
+			.featured-button-subtitle {
+				color: #fff;
+				font-size: 0.9rem;
+				text-shadow: 0 1px 4px rgba(#000, 0.2);
+				margin-top: 0.35rem;
+				line-height: 1;
+			}
+
+			.featured-button-title {
+				color: darken($color-secondary, 25%);
+				font-size: 0.8rem;
+				line-height: 1;
+			}
+
+			@include respond-to(md) {
+				border-radius: 0;
+				min-height: 4.55rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+			}
 		}
 	}
 }
