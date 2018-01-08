@@ -1,0 +1,53 @@
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+
+  @each $size, $width in $breakpoints {
+    @include respond-to($size) {
+      max-width: $width;
+    }
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$container-padding;
+  margin-right: -$container-padding;
+
+  &.between {
+    justify-content: space-between;
+  }
+
+  &.align-center,
+  &.center {
+    align-items: center;
+  }
+
+  &.justify-center,
+  &.center {
+    justify-content: center;
+  }
+
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+.no-gutters {
+  margin-left: 0;
+  margin-right: 0;
+
+  > .col,
+  > [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,21 @@
+html {
+	-webkit-font-smoothing: antialiased;
+	@include font-size(0.9);
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color-text;
+	font-family: $font__main;
+	font-weight: $font-weight-normal;
+	font-size: 1rem;
+	line-height: $font__line-height-body;
+}
+
+@import "headings";
+
+@import "copy";

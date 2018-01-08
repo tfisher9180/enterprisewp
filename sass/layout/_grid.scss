@@ -1,0 +1,35 @@
+%col-base {
+  position: relative;
+  width: 100%;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+.col {
+  flex: 1;
+  max-width: 100%;
+  @extend %col-base;
+}
+
+@for $i from 1 through $grid-columns {
+  .col-#{$i} {
+    @include col($i);
+    @extend %col-base;
+  }
+
+  @each $size, $width in $breakpoints {
+    .col-#{$size}-#{$i} {
+      @include respond-to($size) {
+        @include col($i);
+      }
+    }
+  }
+}
+
+@each $size, $width in $breakpoints {
+  .col-#{$size}-auto {
+    @include respond-to($size) {
+      @include col-auto();
+    }
+  }
+}

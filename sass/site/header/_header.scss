@@ -1,0 +1,40 @@
+.site-logo {
+
+	a {
+		display: block;
+	}
+
+	.site-title {
+		margin-bottom: 0;
+		font-size: 1.2rem;
+
+		a {
+			color: $color-neutral;
+		}
+	}
+
+	.site-description {
+		font-size: 0.8rem;
+		margin: 0;
+	}
+}
+
+.site-header {
+	background-color: $color-grey;
+
+	.site-logo {
+		background-color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		box-shadow: 0 10px 40px rgba(#000, 0.1);
+		height: $site-branding-height;
+		margin-left: -$container-padding;
+
+		@include respond-to(xs) {
+			display: inline-flex;
+			margin-left: 0;
+		}
+	}
+}
